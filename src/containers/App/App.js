@@ -4,6 +4,22 @@ import Header from '../../components/Header/Header.js';
 import Menu from '../../containers/Menu/Menu.js';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+    }
+  }
+
+  componentDidMount = () => {
+    this.getAmiibos();
+  }
+
+  getAmiibos = () => {
+    
+  }
+
+
+
   render() {
     return (
       <div className="App">
@@ -11,7 +27,7 @@ class App extends Component {
         <Menu />
         <CardCarousel />
       </div>
-    );
+    ); 
   }
 }
 
