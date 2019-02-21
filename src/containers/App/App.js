@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getAmiibos } from '../../thunks/getAmiibos.js';
 import CardCarousel from '../../components/CardCarousel/CardCarousel.js';
 import Header from '../../components/Header/Header.js';
 import Menu from '../../containers/Menu/Menu.js';
@@ -11,14 +13,8 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.getAmiibos();
+    this.props.getAmiibos();
   }
-
-  getAmiibos = () => {
-    
-  }
-
-
 
   render() {
     return (
@@ -31,4 +27,12 @@ class App extends Component {
   }
 }
 
-export default App;
+export const mapStateToProps = state => ({
+  amiibos: state.amiibos
+});
+
+export const mapDispatchToProps = dispatch => ({
+  getAmiibos: () => dispatch(getAmiibos())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
