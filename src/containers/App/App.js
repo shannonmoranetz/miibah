@@ -19,16 +19,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <Menu />
-        <CardCarousel />
+        { this.props.isLoading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <div>
+            <Header />
+            <Menu />
+            <CardCarousel />
+          </div>
+        )}
       </div>
-    ); 
+    )
   }
 }
 
 export const mapStateToProps = state => ({
-  amiibos: state.amiibos
+  amiibos: state.amiibos,
+  isLoading: state.isLoading
 });
 
 export const mapDispatchToProps = dispatch => ({
