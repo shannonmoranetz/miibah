@@ -1,4 +1,4 @@
-import { setAmiibos, setLoading } from '../actions';
+import { setAmiibos, setLoading, setError } from '../actions';
 import { fetchItems } from '../utils/api';
 
 // const url = 'http://www.amiiboapi.com/api/amiibo/?';
@@ -12,7 +12,7 @@ export const getAmiibos = () => {
       dispatch(setLoading(false));
       dispatch(setAmiibos(amiibos));
     } catch (error) {
-      throw Error;
+      dispatch(setError('Error: Could not find the amiibo data. Please try again.'));
     }
   };
 };
