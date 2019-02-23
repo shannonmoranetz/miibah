@@ -7,6 +7,7 @@ import Header from '../../components/Header/Header.js';
 import Menu from '../../containers/Menu/Menu.js';
 import ErrorMessage from '../../containers/ErrorMessage/ErrorMessage.js';
 import SearchBar from '../../containers/SearchBar/SearchBar.js';
+import CardExpanded from '../../containers/CardExpanded/CardExpanded.js';
 
 class App extends Component {
   constructor() {
@@ -19,6 +20,15 @@ class App extends Component {
     this.props.getAmiibos();
   }
 
+  findAmiibo = ({ match }) => {
+    const { amiibos } = this.props;
+    const amiibo = amiibos.find(amiibo => amiibo.id === match.params.id);
+    return amiibo ? ([
+      <CardCarousel />,
+      <CardExpanded {...amiibo} match={match} />
+    ]) : <ErrorMessage /> 
+  }
+
   render() {
     return (
       <div className="App">
@@ -28,6 +38,7 @@ class App extends Component {
             <Menu />
             <Switch>
               <Route exact path='/' component={CardCarousel} />
+              <Route path='/amiibo/:id' render={this.findAmiibo} />
               <Route component={ErrorMessage} />
             </Switch>
           </div>
@@ -37,6 +48,7 @@ class App extends Component {
 }
 
 export const mapStateToProps = state => ({
+  amiibos: state.amiibos,
   isLoading: state.isLoading
 });
 
