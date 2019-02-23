@@ -1,8 +1,7 @@
 import { setAmiibos, setLoading, setError } from '../actions';
 import { fetchItems } from '../utils/api';
 
-// const url = 'http://www.amiiboapi.com/api/amiibo/?';
-const url = 'http://www.amiiboapi.com/api/amiibo/?character=Mewtwoa';
+const url = 'http://www.amiiboapi.com/api/amiibo/';
 
 export const getAmiibos = () => {
   return async dispatch => {

@@ -1,14 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Card from '../../containers/Card/Card.js';
-import CardExpanded from '../../containers/CardExpanded/CardExpanded.js';
 
-const CardCarousel = () => {
+const CardCarousel = (props) => {
   return (
     <div className="CardCarousel">
-      <Card />
-      <CardExpanded />
+      {
+        props.amiibos.map((amiibo, i) => {
+          return <Card name={amiibo.name.toLowerCase()}
+                       amiiboSeries={amiibo.amiiboSeries.toLowerCase()}
+                       gameSeries = {amiibo.gameSeries.toLowerCase()}
+                       image = {amiibo.image}
+                       release = {amiibo.release.na}
+                       key={i} />
+        })
+      }
     </div>
   );
 }
 
-export default CardCarousel;
+export const mapStateToProps = state => ({
+  amiibos: state.amiibos
+});
+
+export default connect(mapStateToProps)(CardCarousel);

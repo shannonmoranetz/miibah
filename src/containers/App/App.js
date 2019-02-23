@@ -37,7 +37,6 @@ class App extends Component {
 }
 
 export const mapStateToProps = state => ({
-  amiibos: state.amiibos,
   isLoading: state.isLoading
 });
 
