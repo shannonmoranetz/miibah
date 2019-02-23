@@ -19,14 +19,14 @@ class App extends Component {
   componentDidMount = () => {
     this.props.getAmiibos();
   }
-
+  
   findAmiibo = ({ match }) => {
     const { amiibos } = this.props;
     const amiibo = amiibos.find(amiibo => amiibo.id === match.params.id);
     return amiibo ? ([
       <CardCarousel />,
       <CardExpanded {...amiibo} match={match} />
-    ]) : <ErrorMessage /> 
+    ]) : <ErrorMessage />
   }
 
   render() {
