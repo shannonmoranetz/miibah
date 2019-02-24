@@ -1,11 +1,43 @@
 .CardExpanded {
   z-index: 1;
-  font-family: $body-font;
-  border: 2px solid black;
-  display: inline-block;
+  position: absolute;
+  top: 25%;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
-.CardName {
+.innerCard {
+  margin: 0px auto;
+  border: 6px solid $darkblue;
+  display: inline-block;
+  font-family: $body-font;
+  width: 80%;
+  color: white;
+  background-color: $ice;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.CardInfo {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.cardName {
   font-family: $heading-font;
+  font-size: 40px;
+}
+
+.previewImageExpanded {
+  margin: 30px auto;
+  height: 300px;
+}
+
+.cardAmiiboSeries,
+.cardGameSeries,
+.cardDate {
+  font-size: 25px;
 }
 
