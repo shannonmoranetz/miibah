@@ -7,7 +7,7 @@
   left: 0;
 }
 
-.innerCard {
+.inner-card {
   margin: 0px auto;
   border: 6px solid $darkblue;
   display: inline-block;
@@ -18,26 +18,35 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  text-transform: lowercase;
 }
 
-.CardInfo {
+.card-info {
   margin-top: auto;
   margin-bottom: auto;
 }
 
-.cardName {
+.card-name {
   font-family: $heading-font;
   font-size: 40px;
 }
 
-.previewImageExpanded {
+.image-expanded {
   margin: 30px auto;
   height: 300px;
 }
 
-.cardAmiiboSeries,
-.cardGameSeries,
-.cardDate {
+.card-amiibo-series,
+.card-game-series,
+.card-date {
   font-size: 25px;
 }
 
+.exit-button {
+  margin-bottom: 30%;
+  text-align: center;
+  padding: 5px 15px;
+  font-size: 30px;
+  border: 2px solid white;
+  background-color: $salmon;
+}

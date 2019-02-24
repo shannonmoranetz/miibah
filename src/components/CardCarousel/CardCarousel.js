@@ -10,9 +10,9 @@ class CardCarousel extends Component {
       <div className="CardCarousel">
         {
           this.props.amiibos.map((amiibo, i) => {
-            return <Card name={amiibo.name.toLowerCase()}
-                         amiiboSeries={amiibo.amiiboSeries.toLowerCase()}
-                         gameSeries = {amiibo.gameSeries.toLowerCase()}
+            return <Card name={amiibo.name}
+                         amiiboSeries={amiibo.amiiboSeries}
+                         gameSeries = {amiibo.gameSeries}
                          image = {amiibo.image}
                          release = {amiibo.release.na}
                          id={amiibo.id}

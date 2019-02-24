@@ -34,7 +34,7 @@ class App extends Component {
       <div className="App">
         <Header />
         { this.props.isLoading && <h2>loading...</h2> }
-          <div>
+          <div className="inner-app">
             <Menu />
             <Switch>
               <Route exact path='/' component={CardCarousel} />
