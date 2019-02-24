@@ -5,7 +5,6 @@ import Card from '../../containers/Card/Card.js';
 
 
 class CardCarousel extends Component {
-
   render() {
     return (
       <div className="CardCarousel">

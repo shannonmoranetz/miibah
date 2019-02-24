@@ -1,12 +1,17 @@
 .Header {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .star {
   height: 100px;
   width: 100px;
+  margin: 0px 30px;
 }
 
 .title {
-  
+  font-family: $heading-font;
+  color: white;
+  font-size: 80px;
 }
