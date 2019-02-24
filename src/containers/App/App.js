@@ -33,9 +33,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        { this.props.isLoading && <h2>loading...</h2> }
+        { this.props.isLoading && <h2 className="load-text">loading...</h2> }
           <div className="inner-app">
             <Menu />
+            <SearchBar />
             <Switch>
               <Route exact path='/' component={CardCarousel} />
               <Route path='/amiibo/:id' render={this.findAmiibo} />
