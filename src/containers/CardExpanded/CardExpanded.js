@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addWishlist }  from '../../thunks/addWishlist';
-import { addCollected }  from '../../thunks/addCollected';
+import { addToWishlist, addToCollected }  from '../../actions';
 import { Link } from 'react-router-dom';
 
 class CardExpanded extends Component {
 
   addToWishlist = async () => {
     let amiibo = this.props;
-    await this.props.addWishlist(amiibo);
+    await this.props.addToWishlist(amiibo);
     localStorage.setItem('wishlist', JSON.stringify(this.props.wishlist));
   }
 
   addToCollected = async () => {
     let amiibo = this.props;
-    await this.props.addCollected(amiibo);
+    await this.props.addToCollected(amiibo);
     localStorage.setItem('collected', JSON.stringify(this.props.collected));
   }
 
@@ -48,8 +47,8 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  addWishlist: (amiibo) => dispatch(addWishlist(amiibo)),
-  addCollected: (amiibo) => dispatch(addCollected(amiibo))
+  addToWishlist: (amiibo) => dispatch(addToWishlist(amiibo)),
+  addToCollected: (amiibo) => dispatch(addToCollected(amiibo))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardExpanded);

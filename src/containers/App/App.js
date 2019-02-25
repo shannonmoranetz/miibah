@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAmiibos } from '../../thunks/getAmiibos.js';
 import { withRouter, Route, Switch } from 'react-router-dom';
-import { setWishlist }  from '../../thunks/setWishlist.js';
-import { setCollected }  from '../../thunks/setCollected.js';
+import { getWishlist, getCollected }  from '../../actions/';
 import CardCarousel from '../../components/CardCarousel/CardCarousel.js';
 import Header from '../../components/Header/Header.js';
 import Menu from '../../containers/Menu/Menu.js';
@@ -12,7 +11,7 @@ import SearchBar from '../../containers/SearchBar/SearchBar.js';
 import CardExpanded from '../../containers/CardExpanded/CardExpanded.js';
 
 class App extends Component {
-
+  
   componentDidMount = () => {
     this.props.getAmiibos();
     this.populateWishlist();
@@ -23,7 +22,7 @@ class App extends Component {
     const wishlist = localStorage.getItem('wishlist');
     const parsedWishlist = JSON.parse(wishlist);
     if (localStorage.getItem('wishlist') !== null) {
-      this.props.setWishlist(parsedWishlist);
+      this.props.getWishlist(parsedWishlist);
     }
   }
 
@@ -31,7 +30,7 @@ class App extends Component {
     const collected = localStorage.getItem('collected');
     const parsedCollected = JSON.parse(collected);
     if (localStorage.getItem('collected') !== null) {
-      this.props.setCollected(parsedCollected);
+      this.props.getCollected(parsedCollected);
     }
   }
   
@@ -65,15 +64,13 @@ class App extends Component {
 
 export const mapStateToProps = state => ({
   amiibos: state.amiibos,
-  isLoading: state.isLoading,
-  wishlist: state.wishlist,
-  collected: state.collected
+  isLoading: state.isLoading
 });
 
 export const mapDispatchToProps = dispatch => ({
   getAmiibos: () => dispatch(getAmiibos()),
-  setWishlist: (wishlist) => dispatch(setWishlist(wishlist)),
-  setCollected: (collected) => dispatch(setCollected(collected))
+  getWishlist: (wishlist) => dispatch(getWishlist(wishlist)),
+  getCollected: (collected) => dispatch(getCollected(collected))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Card from '../../containers/Card/Card.js';
 
-
-
 class CardCarousel extends Component {
   render() {
     return (
