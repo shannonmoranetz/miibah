@@ -1,4 +1,3 @@
-
 import { SET_ERROR } from '../actions';
 
 export function errorReducer(state = '', action) {
