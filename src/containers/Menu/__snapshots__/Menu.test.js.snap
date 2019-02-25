@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should match the snapshot 1`] = `
+<div
+  className="Menu"
+>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    className="nav-button home-button"
+    to="/"
+  >
+    home
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    className="nav-button wishlist-button"
+    to="/"
+  >
+    wishlist
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    className="nav-button collection-button"
+    to="/"
+  >
+    collection
+  </NavLink>
+</div>
+`;

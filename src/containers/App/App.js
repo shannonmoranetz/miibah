@@ -12,19 +12,22 @@ import SearchBar from '../../containers/SearchBar/SearchBar.js';
 import CardExpanded from '../../containers/CardExpanded/CardExpanded.js';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-    }
-  }
 
   componentDidMount = () => {
     this.props.getAmiibos();
+    this.populateWishlist();
+    this.populateCollected();
+  }
+
+  populateWishlist = () => {
     const wishlist = localStorage.getItem('wishlist');
     const parsedWishlist = JSON.parse(wishlist);
     if (localStorage.getItem('wishlist') !== null) {
       this.props.setWishlist(parsedWishlist);
     }
+  }
+
+  populateCollected = () => {
     const collected = localStorage.getItem('collected');
     const parsedCollected = JSON.parse(collected);
     if (localStorage.getItem('collected') !== null) {

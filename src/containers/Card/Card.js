@@ -10,7 +10,7 @@ class Card extends Component {
           <img className="preview-image" src={this.props.image} alt={`${this.props.name} amiibo`}/>
         </Link>
       </div>
-    ); 
+    );
   }
 }
 
