@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setWishlist }  from '../../thunks/setWishlist';
+import { setList }  from '../../thunks/setList';
 import { Link } from 'react-router-dom';
 
 class CardExpanded extends Component {
 
   addToWishlist = async () => {
     let amiibo = this.props
-    await this.props.setWishlist(amiibo)
+    await this.props.setList(amiibo)
     localStorage.setItem('wishlist', JSON.stringify(this.props.wishlist))
   }
 
@@ -40,7 +40,7 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  setWishlist: (amiibo) => dispatch(setWishlist(amiibo))
+  setList: (amiibo) => dispatch(setList(amiibo))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardExpanded);

@@ -1,5 +1,6 @@
 export const SET_AMIIBOS = 'SET_AMIIBOS';
 export const ADD_AMIIBO = 'ADD_AMIIBO';
+export const GET_WISHLIST = 'GET_WISHLIST';
 export const SET_LOADING = 'SET_LOADING';
 export const SET_ERROR = 'SET_ERROR';
 
@@ -11,6 +12,11 @@ export const setAmiibos = amiibos => ({
 export const addAmiibo = amiibo => ({
   type: ADD_AMIIBO,
   amiibo
+});
+
+export const getWishlist = wishlist => ({
+  type: GET_WISHLIST,
+  wishlist
 });
 
 export const setLoading = isLoading => ({

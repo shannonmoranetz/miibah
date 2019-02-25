@@ -8,5 +8,8 @@ describe('App', () => {
     ReactDOM.render(<App />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
+  it('starts with the correct default state', () => {
+    
+  })
 });
 

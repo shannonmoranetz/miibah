@@ -1,8 +1,7 @@
-import { addAmiibo } from '../actions';
+import { getWishlist } from '../actions';
 
-export const setWishlist = (amiibo) => {
-  console.log(amiibo)
+export const setWishlist = (wishlist) => {
   return async dispatch => {
-    await dispatch(addAmiibo(amiibo))
+    await dispatch(getWishlist(wishlist))
   };
 };
