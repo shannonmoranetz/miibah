@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addWishlist }  from '../../thunks/addWishlist';
+import { addCollected }  from '../../thunks/addCollected';
 import { Link } from 'react-router-dom';
 
 class CardExpanded extends Component {
@@ -33,7 +34,7 @@ class CardExpanded extends Component {
           </div>
           <div className="expanded-buttons">
             <button onClick={this.addToWishlist} className="wish-button">wish</button>
-            <button className="collect-button">collect</button>
+            <button onClick={this.addToCollected} className="collect-button">collect</button>
           </div>
       </div>
     </div>
@@ -47,7 +48,8 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  addWishlist: (amiibo) => dispatch(addWishlist(amiibo))
+  addWishlist: (amiibo) => dispatch(addWishlist(amiibo)),
+  addCollected: (amiibo) => dispatch(addCollected(amiibo))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardExpanded);
