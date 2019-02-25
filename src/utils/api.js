@@ -4,6 +4,6 @@ export const fetchItems = async (url, options = {}) => {
     const results =  await response.json();
     return results.amiibo;
   } else {
-    throw new Error(`${response.statusText}, ${response.status}`);
+   throw new Error(`${response.statusText}, ${response.status}`);
   }
 }

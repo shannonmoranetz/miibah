@@ -50,7 +50,8 @@ class App extends Component {
 
 export const mapStateToProps = state => ({
   amiibos: state.amiibos,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  wishlist: state.wishlist
 });
 
 export const mapDispatchToProps = dispatch => ({
