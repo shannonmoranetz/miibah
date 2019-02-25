@@ -3,12 +3,14 @@ import { amiibosReducer } from './amiibosReducer';
 import { loadingReducer } from './loadingReducer';
 import { errorReducer } from './errorReducer';
 import { wishlistReducer } from './wishlistReducer';
+import { collectedReducer } from './collectedReducer';
 
 const rootReducer = combineReducers({
   amiibos: amiibosReducer,
   isLoading: loadingReducer,
   error: errorReducer,
-  wishlist: wishlistReducer
+  wishlist: wishlistReducer,
+  collected: collectedReducer
 });
 
 export default rootReducer;

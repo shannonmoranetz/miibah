@@ -1,11 +1,11 @@
-import { ADD_AMIIBO, GET_WISHLIST } from '../actions';
+import { ADD_TO_WISHLIST, GET_WISHLIST } from '../actions';
 
 export function wishlistReducer(state = [], action) {
   switch (action.type) {
-    case ADD_AMIIBO:
+    case ADD_TO_WISHLIST:
       return [...state, action.amiibo];
-    case GET_WISHLIST:
-      return action.wishlist;
+    case GET_WISHLIST: 
+      return action.wishlist
     default:
       return state;
   }
