@@ -17,7 +17,7 @@ export class CardExpanded extends Component {
 
   addAmiiboToWishlist = async () => {
     let { name, amiiboSeries, gameSeries, release, image, id } = this.props.amiibo;
-    let amiibo = { name: name, amiiboSeries: amiiboSeries, gameSeries: gameSeries, release: release.na, image: image, id: id }
+    let amiibo = { name: name, amiiboSeries: amiiboSeries, gameSeries: gameSeries, release: release, image: image, id: id }
     if (this.checkExistingList(this.props.wishlist)) {
       await this.props.addToWishlist(amiibo);
       localStorage.setItem('wishlist', JSON.stringify(this.props.wishlist));
@@ -29,7 +29,7 @@ export class CardExpanded extends Component {
 
   addAmiiboToCollected = async () => {
     let { name, amiiboSeries, gameSeries, release, image, id } = this.props.amiibo;
-    let amiibo = { name: name, amiiboSeries: amiiboSeries, gameSeries: gameSeries, release: release.na, image: image, id: id }
+    let amiibo = { name: name, amiiboSeries: amiiboSeries, gameSeries: gameSeries, release: release, image: image, id: id }
     if (this.checkExistingList(this.props.collected)) {
       await this.props.addToCollected(amiibo);
       localStorage.setItem('collected', JSON.stringify(this.props.collected));
@@ -40,11 +40,11 @@ export class CardExpanded extends Component {
   }
 
   render() {
-    let { name, amiiboSeries, gameSeries, release, image, id } = this.props.amiibo;
+    let { name, amiiboSeries, gameSeries, release, image } = this.props.amiibo;
     return (
       <div className="CardExpanded">
         <div className="inner-card">
-        <Link to="/" className="exit-button">x</Link>
+        <button onClick={() => this.props.history.goBack()} className="exit-button">x</button>
           <div className="card-image-container">
             <img className="image-expanded" src={image} alt={`${name} amiibo`}/>
           </div>

@@ -6,13 +6,13 @@ export class CardCarousel extends Component {
 
   returnAmiibos = (amiibos) => {
       return amiibos.map((amiibo, i) => {
-      return <Card name = {amiibo.name}
-                   amiiboSeries = {amiibo.amiiboSeries}
-                   gameSeries = {amiibo.gameSeries}
-                   image = {amiibo.image}
-                   release = {amiibo.release.na}
-                   id = {amiibo.id}
-                   key = {i} />
+        return <Card  name = {amiibo.name}
+                      amiiboSeries = {amiibo.amiiboSeries}
+                      gameSeries = {amiibo.gameSeries}
+                      image = {amiibo.image}
+                      release = {amiibo.release.na}
+                      id = {amiibo.id}
+                      key = {i} />
     })
   }
 

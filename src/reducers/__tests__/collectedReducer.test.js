@@ -16,6 +16,13 @@ describe('collectedReducer', () => {
     expect(result).toEqual(expected);
   });
 
+  it('should return state of an updated array with the action removeFromCollected', () => {
+    const mockAmiibos = [{ name: 'pikachu', id: 1 }, { name: 'squirtle', id: 2 }];
+    const expected = [{ name: 'pikachu', id: 1 }];
+    const result = collectedReducer(mockAmiibos, actions.removeFromCollected({ name: 'squirtle'}));
+    expect(result).toEqual(expected);
+  });
+
   it('should return state of an array of amiibo objects with the action getCollected', () => {
     const mockAmiibos = [{ name: 'charmander', id: 3 }];
     const expected = mockAmiibos;

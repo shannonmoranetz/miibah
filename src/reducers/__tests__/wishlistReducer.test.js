@@ -16,6 +16,13 @@ describe('wishlistReducer', () => {
     expect(result).toEqual(expected);
   });
 
+  it('should return state of an updated array with the action removeFromWishlist', () => {
+    const mockAmiibos = [{ name: 'pikachu', id: 1 }, { name: 'squirtle', id: 2 }];
+    const expected = [{ name: 'pikachu', id: 1 }];
+    const result = wishlistReducer(mockAmiibos, actions.removeFromWishlist({ name: 'squirtle'}));
+    expect(result).toEqual(expected);
+  });
+
   it('should return state of an array of amiibo objects with the action getWishlist', () => {
     const mockAmiibos = [{ name: 'charmander', id: 3 }];
     const expected = mockAmiibos;

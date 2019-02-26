@@ -46,7 +46,7 @@ describe('App', () => {
 
   it('should return the matched amiibo', () => {
     const amiibo = { id: 1, name: 'pikachu' };
-    const expected = [<CardCarousel />, <CardExpanded {...amiibo} match={matchMock} />]
+    const expected = [<CardCarousel match={matchMock} />, <CardExpanded amiibo={amiibo} match={matchMock} />]
     const result = wrapper.instance().findAmiibo({ match: { params: { id: 1 } } });
     expect(result).toEqual(expected);
   });

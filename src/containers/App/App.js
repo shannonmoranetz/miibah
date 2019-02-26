@@ -11,7 +11,7 @@ import SearchBar from '../../containers/SearchBar/SearchBar.js';
 import CardExpanded from '../../containers/CardExpanded/CardExpanded.js';
 
 export class App extends Component {
-  
+
   componentDidMount = () => {
     this.props.getAmiibos();
     this.populateWishlist();
@@ -34,12 +34,12 @@ export class App extends Component {
     }
   }
   
-  findAmiibo = ({ match }) => {
+  findAmiibo = ({ match, history }) => {
     const { amiibos } = this.props;
     const amiibo = amiibos.find(amiibo => amiibo.id === match.params.id);
     return amiibo ? ([
-      <CardCarousel match={match} />,
-      <CardExpanded amiibo={amiibo} match={match} />
+      <CardCarousel match={match} history={history} />,
+      <CardExpanded amiibo={amiibo} match={match} history={history} />
     ]) : <ErrorMessage />
   }
 
