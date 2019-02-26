@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 export class CardExpanded extends Component {
 
-  checkExistingList = () => {
+  checkExistingList = (list) => {
     let amiibo = this.props;
-    let index = this.props.wishlist.findIndex(wishlistItem => wishlistItem.name == amiibo.name);
+    let index = list.findIndex(listItem => listItem.name == amiibo.name);
     if (index == -1) {
       return true;
     } else {
@@ -17,8 +17,7 @@ export class CardExpanded extends Component {
 
   addAmiiboToWishlist = async () => {
     let amiibo = this.props;
-    let index = this.props.wishlist.findIndex(wishlistItem => wishlistItem.name == amiibo.name);
-    if (index == -1) {
+    if (this.checkExistingList(this.props.wishlist)) {
       await this.props.addToWishlist(amiibo);
       localStorage.setItem('wishlist', JSON.stringify(this.props.wishlist));
     } else {
@@ -29,8 +28,7 @@ export class CardExpanded extends Component {
 
   addAmiiboToCollected = async () => {
     let amiibo = this.props;
-    let index = this.props.collected.findIndex(collectedItem => collectedItem.name == amiibo.name);
-    if (index == -1) {
+    if (this.checkExistingList(this.props.collected)) {
       await this.props.addToCollected(amiibo);
       localStorage.setItem('collected', JSON.stringify(this.props.collected));
     } else {
@@ -40,6 +38,7 @@ export class CardExpanded extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="CardExpanded">
         <div className="inner-card">
@@ -54,8 +53,8 @@ export class CardExpanded extends Component {
             <p className="card-date">release date: {this.props.release.na}</p>
           </div>
           <div className="expanded-buttons">
-            <button onClick={this.addAmiiboToWishlist} className="wish-button">{ this.checkExistingList() ? 'add to wishlist' : 'remove from wishlist' }</button>
-            <button onClick={this.addAmiiboToCollected} className="collect-button">{ this.checkExistingList() ? 'add to collection' : 'remove from collection' }</button>
+            <button onClick={this.addAmiiboToWishlist} className="wish-button">{ this.checkExistingList(this.props.wishlist) ? 'add to wishlist' : 'remove from wishlist' }</button>
+            <button onClick={this.addAmiiboToCollected} className="collect-button">{ this.checkExistingList(this.props.collected) ? 'add to collection' : 'remove from collection' }</button>
           </div>
       </div>
     </div>
