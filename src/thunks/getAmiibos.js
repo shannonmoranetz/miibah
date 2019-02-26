@@ -10,9 +10,9 @@ export const getAmiibos = () => {
       const amiibos = await fetchItems(url);
       dispatch(setLoading(false));
       dispatch(setAmiibos(amiibos));
-    } catch (error) {      
+    } catch (error) {
       dispatch(setError(error));
-      dispatch(setLoading(false));
+      // dispatch(setLoading(false));
     }
   };
 };

@@ -1,9 +1,9 @@
-export const fetchItems = async (url, options = {}) => {
-  const response = await fetch(url, options);
+export const fetchItems = async (url) => {
+  const response = await fetch(url);
   if (response.ok) {
     const results =  await response.json();
     return results.amiibo;
   } else {
-   throw new Error(`${response.statusText}, ${response.status}`);
+   throw new Error('Error fetching data');
   }
 }

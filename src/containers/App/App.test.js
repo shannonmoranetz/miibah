@@ -23,9 +23,9 @@ describe('App', () => {
   });
 
   describe('mapStateToProps', () => {
-    it('should return an object with an amiibos array and loading boolean', () => {
+    it('should return a props object with an amiibos array and loading boolean', () => {
       const expected = { amiibos: [{id: 1}, {id: 2}], isLoading: false };
-      const mockState = { amiibos: [{id: 1}, {id: 2}], isLoading: false, favorites: [] }
+      const mockState = { amiibos: [{id: 1}, {id: 2}], isLoading: false, favorites: [] };
       const props = mapStateToProps(mockState);
       expect(props).toEqual(expected);
     });
