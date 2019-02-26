@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addToWishlist, addToCollected, removeFromCollected, removeFromWishlist }  from '../../actions';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export class CardExpanded extends Component {
 
@@ -77,3 +77,16 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardExpanded);
+
+CardExpanded.propTypes = {
+  addToWishlist: PropTypes.func,
+  addToCollected: PropTypes.func,
+  removeFromCollected: PropTypes.func,
+  removeFromWishlist: PropTypes.func,
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object,
+  amiibo: PropTypes.object,
+  wishlist: PropTypes.array,
+  collected: PropTypes.array
+}

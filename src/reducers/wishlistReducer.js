@@ -13,7 +13,7 @@ export function wishlistReducer(state = [], action) {
       let removedWishlist = state.filter(wishlistItem => wishlistItem.name !== action.amiibo.name);
       return removedWishlist;
     case GET_WISHLIST: 
-      return action.wishlist
+      return action.wishlist;
     default:
       return state;
   }

@@ -11,7 +11,7 @@ export const getAmiibos = () => {
       dispatch(setLoading(false));
       dispatch(setAmiibos(amiibos));
     } catch (error) {
-      dispatch(setError(error));
+      dispatch(setError(error.message));
       dispatch(setLoading(false));
     }
   };

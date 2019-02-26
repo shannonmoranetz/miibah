@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export class ErrorMessage extends Component {
   render() {
@@ -10,6 +11,7 @@ export class ErrorMessage extends Component {
           the search returned no results. 
           please try again with a different query.
         </p>
+        <p>{this.props.error}</p>
       </div>
     );
   }
@@ -20,3 +22,7 @@ export const mapStateToProps = state => ({
 });
 
 export default (connect(mapStateToProps)(ErrorMessage));
+
+ErrorMessage.propTypes = {
+  error: PropTypes.string
+}

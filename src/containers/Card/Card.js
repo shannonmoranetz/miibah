@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Card extends Component {
 
@@ -16,3 +17,8 @@ class Card extends Component {
 }
 
 export default Card;
+
+Card.propTypes = {
+  name: PropTypes.string,
+  image: PropTypes.string
+}

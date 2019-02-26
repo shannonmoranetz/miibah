@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 class Menu extends Component {
   render() {
@@ -14,3 +16,5 @@ class Menu extends Component {
 }
 
 export default Menu;
+
+Menu.propTypes = {}

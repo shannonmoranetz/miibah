@@ -9,6 +9,7 @@ import Menu from '../../containers/Menu/Menu.js';
 import ErrorMessage from '../../containers/ErrorMessage/ErrorMessage.js';
 import SearchBar from '../../containers/SearchBar/SearchBar.js';
 import CardExpanded from '../../containers/CardExpanded/CardExpanded.js';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
 
@@ -76,3 +77,14 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+
+App.propTypes = {
+  isLoading: PropTypes.bool,
+  getAmiibos: PropTypes.func,
+  getWishlist: PropTypes.func,
+  getCollected: PropTypes.func,
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object,
+  amiibos: PropTypes.array
+}
