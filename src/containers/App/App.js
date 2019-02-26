@@ -38,7 +38,7 @@ export class App extends Component {
     const { amiibos } = this.props;
     const amiibo = amiibos.find(amiibo => amiibo.id === match.params.id);
     return amiibo ? ([
-      <CardCarousel />,
+      <CardCarousel match={match} />,
       <CardExpanded {...amiibo} match={match} />
     ]) : <ErrorMessage />
   }
