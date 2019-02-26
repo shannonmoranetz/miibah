@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToWishlist, addToCollected }  from '../../actions';
+import { addToWishlist, addToCollected, removeFromCollected, removeFromWishlist }  from '../../actions';
 import { Link } from 'react-router-dom';
 
 export class CardExpanded extends Component {
 
   addAmiiboToWishlist = async () => {
     let amiibo = this.props;
-    await this.props.addToWishlist(amiibo);
-    localStorage.setItem('wishlist', JSON.stringify(this.props.wishlist));
+    let index = this.props.wishlist.findIndex(wishlistItem => wishlistItem.name == amiibo.name);
+    if (index == -1) {
+      console.log('adding to wish...')
+      await this.props.addToWishlist(amiibo);
+      localStorage.setItem('wishlist', JSON.stringify(this.props.wishlist));
+    } else {
+      console.log('deleting from wish...')
+      await this.props.removeFromWishlist(amiibo);
+      localStorage.setItem('wishlist', JSON.stringify(this.props.wishlist));
+    }
   }
 
   addAmiiboToCollected = async () => {
     let amiibo = this.props;
-    await this.props.addToCollected(amiibo);
-    localStorage.setItem('collected', JSON.stringify(this.props.collected));
+    let index = this.props.collected.findIndex(collectedItem => collectedItem.name == amiibo.name);
+    if (index == -1) {
+      console.log('adding to collect...')
+      await this.props.addToCollected(amiibo);
+      localStorage.setItem('collected', JSON.stringify(this.props.collected));
+    } else {
+      console.log('deleting from collect...')
+      await this.props.removeFromCollected(amiibo);
+      localStorage.setItem('collected', JSON.stringify(this.props.collected));
+    }
   }
 
   render() {
@@ -48,7 +64,9 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   addToWishlist: (amiibo) => dispatch(addToWishlist(amiibo)),
-  addToCollected: (amiibo) => dispatch(addToCollected(amiibo))
+  addToCollected: (amiibo) => dispatch(addToCollected(amiibo)),
+  removeFromCollected: (amiibo) => dispatch(removeFromCollected(amiibo)),
+  removeFromWishlist: (amiibo) => dispatch(removeFromWishlist(amiibo))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardExpanded);

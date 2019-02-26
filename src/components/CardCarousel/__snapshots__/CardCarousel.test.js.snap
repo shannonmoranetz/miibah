@@ -1,16 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CardCarousel should match the snapshot 1`] = `
-<div
-  className="CardCarousel"
->
-  <Card
-    amiiboSeries="pokemon"
-    gameSeries="pokemon"
-    id={1}
-    image="pikachu.img"
-    key="0"
-    name="pikachu"
-  />
-</div>
-`;
+exports[`CardCarousel should match the snapshot 1`] = `undefined`;

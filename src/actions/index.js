@@ -1,6 +1,8 @@
 export const SET_AMIIBOS = 'SET_AMIIBOS';
 export const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST';
 export const ADD_TO_COLLECTED = 'ADD_TO_COLLECTED';
+export const REMOVE_FROM_COLLECTED = 'REMOVE_FROM_COLLECTED';
+export const REMOVE_FROM_WISHLIST = 'REMOVE_FROM_WISHLIST';
 export const GET_WISHLIST = 'GET_WISHLIST';
 export const GET_COLLECTED = 'GET_COLLECTED';
 export const SET_LOADING = 'SET_LOADING';
@@ -18,6 +20,16 @@ export const addToWishlist = amiibo => ({
 
 export const addToCollected = amiibo => ({
   type: ADD_TO_COLLECTED,
+  amiibo
+});
+
+export const removeFromCollected = amiibo => ({
+  type: REMOVE_FROM_COLLECTED,
+  amiibo
+});
+
+export const removeFromWishlist = amiibo => ({
+  type: REMOVE_FROM_WISHLIST,
   amiibo
 });
 

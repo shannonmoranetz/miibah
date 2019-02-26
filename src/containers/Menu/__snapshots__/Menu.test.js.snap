@@ -16,7 +16,7 @@ exports[`Menu should match the snapshot 1`] = `
     activeClassName="active"
     aria-current="page"
     className="nav-button wishlist-button"
-    to="/"
+    to="/wishlist"
   >
     wishlist
   </NavLink>
@@ -24,9 +24,9 @@ exports[`Menu should match the snapshot 1`] = `
     activeClassName="active"
     aria-current="page"
     className="nav-button collection-button"
-    to="/"
+    to="/collected"
   >
-    collection
+    collected
   </NavLink>
 </div>
 `;
