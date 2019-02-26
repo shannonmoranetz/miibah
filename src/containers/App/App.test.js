@@ -3,8 +3,6 @@ import { App, mapStateToProps, mapDispatchToProps } from './App';
 import { getAmiibos } from '../../thunks/getAmiibos.js';
 import { getWishlist, getCollected } from '../../actions';
 import { shallow } from 'enzyme';
-import CardExpanded from '../CardExpanded/CardExpanded.js';
-import CardCarousel from '../../components/CardCarousel/CardCarousel.js';
 
 jest.mock('../../thunks/getAmiibos.js');
 

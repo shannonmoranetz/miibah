@@ -1,6 +1,5 @@
 import React from 'react';
 import { CardCarousel, mapStateToProps } from './CardCarousel';
-import { Card } from '../../containers/Card/Card';
 import { shallow } from 'enzyme';
 
 const propsMock = {

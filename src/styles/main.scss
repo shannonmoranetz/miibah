@@ -2,10 +2,10 @@
 @import "variables";
 @import "normalize";
 @import "../containers/App/App.scss";
-@import "../components/CardCarousel/CardCarousel.scss";
 @import "../components/Header/Header.scss";
-@import "../containers/Card/Card.scss";
+@import "../components/Card/Card.scss";
+@import "../components/Menu/Menu.scss";
+@import "../containers/CardCarousel/CardCarousel.scss";
 @import "../containers/CardExpanded/CardExpanded.scss";
 @import "../containers/ErrorMessage/ErrorMessage.scss";
-@import "../containers/Menu/Menu.scss";
 @import "../containers/SearchBar/SearchBar.scss";
