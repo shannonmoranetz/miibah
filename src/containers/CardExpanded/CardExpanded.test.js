@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { CardExpanded, mapStateToProps, mapDispatchToProps } from '../CardExpanded/CardExpanded';
-import { addToWishlist, addToCollected } from '../../actions';
+import { addToWishlist, addToCollected, removeFromCollected, removeFromWishlist } from '../../actions';
 
 const propsMock = {
   addAmiiboToWishlist: jest.fn(),
@@ -13,8 +13,11 @@ const propsMock = {
   gameSeries: 'pokemon',
   image: 'pikachu.img',
   release: 2/20/2019,
-  id: 1
+  id: 1,
+  wishlist: [],
+  collected: []
 };
+
 
 describe('CardExpanded', () => {
   let wrapper; 
@@ -29,12 +32,22 @@ describe('CardExpanded', () => {
   it('should call addToWishlist with an amiibo param when addAmiiboToWishlist is called', async () => {
     wrapper.instance().addAmiiboToWishlist();
     expect(propsMock.addToWishlist).toHaveBeenCalledWith(propsMock);
-  })
+  });
 
   it('should call addToCollected with an amiibo param when addAmiiboToCollected is called', async () => {
     wrapper.instance().addAmiiboToCollected();
     expect(propsMock.addToCollected).toHaveBeenCalledWith(propsMock);
-  })
+  });
+
+  it('should check a list and return true if an item does not exist', () => {
+    let result = wrapper.instance().checkExistingList(propsMock.wishlist);
+    expect(result).toEqual(true);
+  });
+
+  it('should check a list and return false if an item already exists', () => {
+    let result = wrapper.instance().checkExistingList([{ name: 'pikachu' }]);
+    expect(result).toEqual(false);
+  });
 
   describe('mapStateToProps', () => {
     it('should return an object with wishlist and collected arrays', () => {
@@ -56,6 +69,16 @@ describe('CardExpanded', () => {
     it('should dispatch addToCollected with an amiibo object as a param', () => {
       const expected = addToCollected({ id: 2 });
       props.addToCollected({ id: 2 });
+      expect(dispatchMock).toHaveBeenCalledWith(expected);
+    });
+    it('should dispatch removeFromCollected with an amiibo object as a param', () => {
+      const expected = removeFromCollected({ id: 3 });
+      props.removeFromCollected({ id: 3 });
+      expect(dispatchMock).toHaveBeenCalledWith(expected);
+    });
+    it('should dispatch removeFromWishlist with an amiibo object as a param', () => {
+      const expected = removeFromWishlist({ id: 4 });
+      props.removeFromWishlist({ id: 4 });
       expect(dispatchMock).toHaveBeenCalledWith(expected);
     });
   });

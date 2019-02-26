@@ -56,13 +56,13 @@ exports[`CardExpanded should match the snapshot 1`] = `
         className="wish-button"
         onClick={[Function]}
       >
-        wish
+        add to wishlist
       </button>
       <button
         className="collect-button"
         onClick={[Function]}
       >
-        collect
+        add to collection
       </button>
     </div>
   </div>
