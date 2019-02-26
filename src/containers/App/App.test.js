@@ -44,13 +44,6 @@ describe('App', () => {
     expect(propsMock.getCollected).toHaveBeenCalledWith([{name: 'squirtle'}]);
   });
 
-  it('should return the matched amiibo', () => {
-    const amiibo = { id: 1, name: 'pikachu' };
-    const expected = [<CardCarousel match={matchMock} />, <CardExpanded amiibo={amiibo} match={matchMock} />]
-    const result = wrapper.instance().findAmiibo({ match: { params: { id: 1 } } });
-    expect(result).toEqual(expected);
-  });
-
   describe('mapStateToProps', () => {
     it('should return a props object with an amiibos array and loading boolean', () => {
       const expected = { amiibos: [{id: 1}, {id: 2}], isLoading: false };

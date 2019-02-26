@@ -36,7 +36,7 @@ export class App extends Component {
   
   findAmiibo = ({ match, history }) => {
     const { amiibos } = this.props;
-    const amiibo = amiibos.find(amiibo => amiibo.id === match.params.id);
+    const amiibo = amiibos.find(amiibo => amiibo.name === match.params.name);
     return amiibo ? ([
       <CardCarousel match={match} history={history} />,
       <CardExpanded amiibo={amiibo} match={match} history={history} />
@@ -55,7 +55,7 @@ export class App extends Component {
               <Route exact path='/' component={CardCarousel} />
               <Route path='/wishlist' component={CardCarousel} />
               <Route path='/collected' component={CardCarousel} />
-              <Route path='/amiibo/:id' render={this.findAmiibo} />
+              <Route path='/amiibo/:name' render={this.findAmiibo} />
               <Route component={ErrorMessage} />
             </Switch>
           </div>

@@ -11,7 +11,6 @@ export class CardCarousel extends Component {
                       gameSeries = {amiibo.gameSeries}
                       image = {amiibo.image}
                       release = {amiibo.release.na}
-                      id = {amiibo.id}
                       key = {i} />
     })
   }
@@ -22,7 +21,7 @@ export class CardCarousel extends Component {
         { this.props.match.path === '/' && this.returnAmiibos(this.props.amiibos) }
         { this.props.match.path === '/wishlist' && this.returnAmiibos(this.props.wishlist) }
         { this.props.match.path === '/collected' && this.returnAmiibos(this.props.collected) }
-        { this.props.match.path === '/amiibo/:id' && this.returnAmiibos(this.props.amiibos) }
+        { this.props.match.path === '/amiibo/:name' && this.returnAmiibos(this.props.amiibos) }
       </div>
     )
   }

@@ -7,13 +7,12 @@ exports[`CardExpanded should match the snapshot 1`] = `
   <div
     className="inner-card"
   >
-    <Link
+    <button
       className="exit-button"
-      replace={false}
-      to="/"
+      onClick={[Function]}
     >
       x
-    </Link>
+    </button>
     <div
       className="card-image-container"
     >

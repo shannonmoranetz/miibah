@@ -26,18 +26,6 @@ describe('CardCarousel', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should return amiibo card components when returnAmiibos is called', () => {
-    const amiibos = [{ id: 1, 
-      name: 'pikachu', 
-      amiiboSeries: 'pokemon', 
-      gameSeries: 'pokemon', 
-      image: 'pikachu.img', 
-      release: '2/20/2019' }];
-    const expected = [<Card amiiboSeries="pokemon" gameSeries="pokemon" id={1} image="pikachu.img" name="pikachu" />]
-    const result = wrapper.instance().returnAmiibos(propsMock.amiibos);
-    expect(result).toEqual(expected);
-  });
-
   describe('mapStateToProps', () => {
     it('should return an object with an amiibos array', () => {
       const expected = propsMock.amiibos;

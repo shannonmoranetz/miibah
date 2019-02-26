@@ -25,20 +25,8 @@ describe('getAmiibos', () => {
     expect(api.fetchItems).toHaveBeenCalledWith('http://www.amiiboapi.com/api/amiibo/');
   });
 
-  it.skip('should dispatch setAmiibos with amiibo params', async () => {
-    await thunk(dispatchMock);
-    expect(dispatchMock).toHaveBeenCalledWith(setAmiibos(mockAmiibos));
-  });
-
   it('should dispatch setLoading with a false param', async () => {
     await thunk(dispatchMock);
-    expect(dispatchMock).toHaveBeenCalledWith(setLoading(false));
-  });
-
-  it.skip('should dispatch setError with an error string param', async () => {
-    api.fetchItems = jest.fn(() => { throw new Error('Error fetching data') });
-    await thunk(dispatchMock);
-    expect(dispatchMock).toHaveBeenCalledWith(setError('Error fetching data'));
     expect(dispatchMock).toHaveBeenCalledWith(setLoading(false));
   });
 
