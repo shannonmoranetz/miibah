@@ -6,8 +6,8 @@ class Menu extends Component {
     return (
       <div className="Menu">
         <NavLink to='/' className="nav-button home-button">home</NavLink>
-        <NavLink to='/' className="nav-button wishlist-button">wishlist</NavLink>
-        <NavLink to='/' className="nav-button collection-button">collected</NavLink>
+        <NavLink to='/wishlist' className="nav-button wishlist-button">wishlist</NavLink>
+        <NavLink to='/collected' className="nav-button collection-button">collected</NavLink>
       </div>
     );
   }

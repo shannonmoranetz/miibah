@@ -17,7 +17,6 @@ export class CardCarousel extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="CardCarousel">
         { this.props.match.path === '/' && this.returnAmiibos(this.props.amiibos) }
