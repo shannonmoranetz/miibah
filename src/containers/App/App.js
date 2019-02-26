@@ -53,6 +53,8 @@ export class App extends Component {
             <SearchBar />
             <Switch>
               <Route exact path='/' component={CardCarousel} />
+              <Route path='/wishlist' component={CardCarousel} />
+              <Route path='/collected' component={CardCarousel} />
               <Route path='/amiibo/:id' render={this.findAmiibo} />
               <Route component={ErrorMessage} />
             </Switch>
