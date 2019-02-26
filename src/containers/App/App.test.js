@@ -1,26 +1,63 @@
 import React from 'react';
-import App, { mapStateToProps, mapDispatchToProps } from './App';
+import { App, mapStateToProps, mapDispatchToProps } from './App';
 import { getAmiibos } from '../../thunks/getAmiibos.js';
 import { getWishlist, getCollected } from '../../actions';
 import { shallow } from 'enzyme';
+import CardExpanded from '../CardExpanded/CardExpanded.js';
+import CardCarousel from '../../components/CardCarousel/CardCarousel.js';
 
 jest.mock('../../thunks/getAmiibos.js');
 
+const matchMock = { params: { id: 1 } };
+
+const propsMock = {
+  getAmiibos: jest.fn(),
+  getWishlist: jest.fn(),
+  getCollected: jest.fn(),
+  amiibos: [{ name: 'pikachu', id: 1 }]
+}
+
 describe('App', () => {
   let wrapper; 
-  const amiibos = [{id: 1}, {id: 2}];
   beforeEach(() => {
-    wrapper = shallow(<App />);
+    wrapper = shallow(<App {...propsMock} />)
   });
-
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it.skip('should find an amiibo that matches the id passed in', () => {
-
+  it('should call getAmiibos when App is mounted', () => {
+    wrapper.instance().componentDidMount();
+    expect(propsMock.getAmiibos).toHaveBeenCalled();
   });
+
+  it('should call getWishlist with correct params when populateWishList is called', () => {
+    localStorage.setItem('wishlist', JSON.stringify([{name: 'pikachu'}]));
+    wrapper.instance().populateWishlist();
+    expect(propsMock.getWishlist).toHaveBeenCalledWith([{name: 'pikachu'}]);
+  });
+
+  it('should call getCollected with correct params when populateWishList is called', () => {
+    localStorage.setItem('collected', JSON.stringify([{name: 'squirtle'}]));
+    wrapper.instance().populateCollected();
+    expect(propsMock.getCollected).toHaveBeenCalledWith([{name: 'squirtle'}]);
+  });
+
+  it('should return the matched amiibo', () => {
+    const amiibo = { id: 1, name: 'pikachu' };
+    const expected = [<CardCarousel />, <CardExpanded {...amiibo} match={matchMock} />]
+    const result = wrapper.instance().findAmiibo({ match: { params: { id: 1 } } });
+    expect(result).toEqual(expected);
+  });
+
+
+
+
+
+
+
+
 
   describe('mapStateToProps', () => {
     it('should return a props object with an amiibos array and loading boolean', () => {

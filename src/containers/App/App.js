@@ -10,7 +10,7 @@ import ErrorMessage from '../../containers/ErrorMessage/ErrorMessage.js';
 import SearchBar from '../../containers/SearchBar/SearchBar.js';
 import CardExpanded from '../../containers/CardExpanded/CardExpanded.js';
 
-class App extends Component {
+export class App extends Component {
   
   componentDidMount = () => {
     this.props.getAmiibos();

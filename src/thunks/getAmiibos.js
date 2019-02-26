@@ -12,7 +12,7 @@ export const getAmiibos = () => {
       dispatch(setAmiibos(amiibos));
     } catch (error) {
       dispatch(setError(error));
-      // dispatch(setLoading(false));
+      dispatch(setLoading(false));
     }
   };
 };
