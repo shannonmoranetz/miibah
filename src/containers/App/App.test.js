@@ -15,7 +15,7 @@ const propsMock = {
   getWishlist: jest.fn(),
   getCollected: jest.fn(),
   amiibos: [{ name: 'pikachu', id: 1 }]
-}
+};
 
 describe('App', () => {
   let wrapper; 
@@ -51,14 +51,6 @@ describe('App', () => {
     expect(result).toEqual(expected);
   });
 
-
-
-
-
-
-
-
-
   describe('mapStateToProps', () => {
     it('should return a props object with an amiibos array and loading boolean', () => {
       const expected = { amiibos: [{id: 1}, {id: 2}], isLoading: false };
@@ -89,6 +81,5 @@ describe('App', () => {
       expect(dispatchMock).toHaveBeenCalledWith(expected);
     });
   });
-
 });
 

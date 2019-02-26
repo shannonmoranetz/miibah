@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { addToWishlist, addToCollected }  from '../../actions';
 import { Link } from 'react-router-dom';
 
-class CardExpanded extends Component {
+export class CardExpanded extends Component {
 
-  addToWishlist = async () => {
+  addAmiiboToWishlist = async () => {
     let amiibo = this.props;
     await this.props.addToWishlist(amiibo);
     localStorage.setItem('wishlist', JSON.stringify(this.props.wishlist));
   }
 
-  addToCollected = async () => {
+  addAmiiboToCollected = async () => {
     let amiibo = this.props;
     await this.props.addToCollected(amiibo);
     localStorage.setItem('collected', JSON.stringify(this.props.collected));
@@ -32,8 +32,8 @@ class CardExpanded extends Component {
             <p className="card-date">release date: {this.props.release.na}</p>
           </div>
           <div className="expanded-buttons">
-            <button onClick={this.addToWishlist} className="wish-button">wish</button>
-            <button onClick={this.addToCollected} className="collect-button">collect</button>
+            <button onClick={this.addAmiiboToWishlist} className="wish-button">wish</button>
+            <button onClick={this.addAmiiboToCollected} className="collect-button">collect</button>
           </div>
       </div>
     </div>

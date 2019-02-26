@@ -1,7 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ErrorMessage should match the snapshot 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<div
+  className="ErrorMessage"
+>
+  <h2>
+    error
+  </h2>
+  <p>
+    the search returned no results. please try again with a different query.
+  </p>
+</div>
 `;

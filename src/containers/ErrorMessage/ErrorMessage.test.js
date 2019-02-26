@@ -1,5 +1,5 @@
 import React from 'react';
-import ErrorMessage, { mapStateToProps } from './ErrorMessage';
+import { ErrorMessage, mapStateToProps } from './ErrorMessage';
 import { shallow } from 'enzyme';
 
 describe('ErrorMessage', () => {

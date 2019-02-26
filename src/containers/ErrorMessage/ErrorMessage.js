@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-class ErrorMessage extends Component {
+export class ErrorMessage extends Component {
   render() {
     return (
       <div className="ErrorMessage">

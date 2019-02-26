@@ -1,12 +1,22 @@
 import React from 'react';
-import CardCarousel, { mapStateToProps } from './CardCarousel';
+import { CardCarousel, mapStateToProps } from './CardCarousel';
 import { shallow } from 'enzyme';
+
+const propsMock = {
+  amiibos: [
+            { id: 1, 
+              name: 'pikachu', 
+              amiiboSeries: 'pokemon', 
+              gameSeries: 'pokemon', 
+              image: 'pikachu.img', 
+              release: 2/20/2019 }
+            ],
+};
 
 describe('CardCarousel', () => {
   let wrapper;
-  const amiibos = [{id: 1}, {id: 2}]
   beforeEach(() => {
-    wrapper = shallow(<CardCarousel />);
+    wrapper = shallow(<CardCarousel {...propsMock} />);
   });
 
   it('should match the snapshot', () => {
@@ -15,11 +25,10 @@ describe('CardCarousel', () => {
 
   describe('mapStateToProps', () => {
     it('should return an object with an amiibos array', () => {
-      const expected = amiibos;
-      const mockState = { amiibos: [{id: 1}, {id: 2}] }
+      const expected = propsMock.amiibos;
+      const mockState = { amiibos: [{id: 1, name: 'pikachu', amiiboSeries: 'pokemon', gameSeries: 'pokemon', image: 'pikachu.img', release: 2/20/2019 }] }
       const props = mapStateToProps(mockState);
       expect(props.amiibos).toEqual(expected);
     });
-    
   });
 });

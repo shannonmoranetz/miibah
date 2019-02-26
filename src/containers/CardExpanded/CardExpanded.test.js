@@ -1,18 +1,40 @@
 import React from 'react';
-import CardExpanded from './CardExpanded';
 import { shallow } from 'enzyme';
-import { mapStateToProps, mapDispatchToProps } from '../CardExpanded/CardExpanded';
+import { CardExpanded, mapStateToProps, mapDispatchToProps } from '../CardExpanded/CardExpanded';
 import { addToWishlist, addToCollected } from '../../actions';
+
+const propsMock = {
+  addAmiiboToWishlist: jest.fn(),
+  addAmiiboToCollected: jest.fn(),
+  addToWishlist: jest.fn(),
+  addToCollected: jest.fn(),
+  name: 'pikachu',
+  amiiboSeries: 'pokemon',
+  gameSeries: 'pokemon',
+  image: 'pikachu.img',
+  release: 2/20/2019,
+  id: 1
+};
 
 describe('CardExpanded', () => {
   let wrapper; 
   beforeEach(() => {
-    wrapper = shallow(<CardExpanded />);
+    wrapper = shallow(<CardExpanded {...propsMock} />);
   });
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should call addToWishlist with an amiibo param when addAmiiboToWishlist is called', async () => {
+    wrapper.instance().addAmiiboToWishlist();
+    expect(propsMock.addToWishlist).toHaveBeenCalledWith(propsMock);
+  })
+
+  it('should call addToCollected with an amiibo param when addAmiiboToCollected is called', async () => {
+    wrapper.instance().addAmiiboToCollected();
+    expect(propsMock.addToCollected).toHaveBeenCalledWith(propsMock);
+  })
 
   describe('mapStateToProps', () => {
     it('should return an object with wishlist and collected arrays', () => {

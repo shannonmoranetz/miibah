@@ -1,7 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CardExpanded should match the snapshot 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<div
+  className="CardExpanded"
+>
+  <div
+    className="inner-card"
+  >
+    <Link
+      className="exit-button"
+      replace={false}
+      to="/"
+    >
+      x
+    </Link>
+    <div
+      className="card-image-container"
+    >
+      <img
+        alt="pikachu amiibo"
+        className="image-expanded"
+        src="pikachu.img"
+      />
+    </div>
+    <div
+      className="card-info"
+    >
+      <h2
+        className="card-name"
+      >
+        pikachu
+      </h2>
+      <p
+        className="card-amiibo-series"
+      >
+         amiibo series: 
+        pokemon
+      </p>
+      <p
+        className="card-game-series"
+      >
+        game series: 
+        pokemon
+      </p>
+      <p
+        className="card-date"
+      >
+        release date: 
+      </p>
+    </div>
+    <div
+      className="expanded-buttons"
+    >
+      <button
+        className="wish-button"
+        onClick={[Function]}
+      >
+        wish
+      </button>
+      <button
+        className="collect-button"
+        onClick={[Function]}
+      >
+        collect
+      </button>
+    </div>
+  </div>
+</div>
 `;
