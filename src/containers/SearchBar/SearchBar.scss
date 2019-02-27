@@ -35,3 +35,12 @@ textarea:focus, input:focus{
   border-radius: 15px;
   cursor: pointer;
 }
+
+.submit-button {
+  font-family: $heading-font;
+  margin: 4px 12px;
+  text-align: center;
+  padding: 7px;
+  font-size: 18px;
+  color: $deepblue;
+}

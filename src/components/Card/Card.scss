@@ -10,7 +10,9 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: $neutralpurple;
+  background-image: url("images/card-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .preview-name {

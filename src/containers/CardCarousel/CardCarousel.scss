@@ -7,3 +7,10 @@
   border-top: 20px solid $darkblue;
   border-bottom: 20px solid $darkblue;
 }
+
+.empty-message {
+  font-family: $heading-font;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+}

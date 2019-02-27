@@ -45,7 +45,6 @@ export class CardExpanded extends Component {
       return (
         <div className="CardExpanded">
           <div className="inner-card">
-          <button onClick={() => this.props.history.goBack()} className="exit-button">x</button>
             <div className="card-image-container">
               <img className="image-expanded" src={image} alt={`${name} amiibo`}/>
             </div>
@@ -58,6 +57,7 @@ export class CardExpanded extends Component {
             <div className="expanded-buttons">
               <button onClick={this.addAmiiboToWishlist} className="wish-button">{ this.checkExistingList(this.props.wishlist) ? 'add to wishlist' : 'remove from wishlist' }</button>
               <button onClick={this.addAmiiboToCollected} className="collect-button">{ this.checkExistingList(this.props.collected) ? 'add to collection' : 'remove from collection' }</button>
+              <button onClick={() => this.props.history.goBack()} className="exit-button">back</button>
             </div>
         </div>
       </div>

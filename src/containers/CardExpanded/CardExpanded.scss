@@ -9,12 +9,14 @@
 
 .inner-card {
   margin: 0px auto;
-  border: 6px solid $darkblue;
+  border: 6px solid white;
   display: inline-block;
   font-family: $body-font;
   width: 80%;
   color: white;
-  background-color: $ice;
+  background-image: url("images/expanded-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -42,11 +44,21 @@
   font-size: 25px;
 }
 
-.exit-button {
-  margin-bottom: 30%;
+.exit-button,
+.wish-button,
+.collect-button {
+  font-family: $heading-font;
+  margin: 10px 0px;
   text-align: center;
-  padding: 5px 15px;
-  font-size: 30px;
+  padding: 7px;
+  font-size: 18px;
   border: 2px solid white;
   background-color: $salmon;
+  color: white;
+}
+
+.expanded-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

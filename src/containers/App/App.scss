@@ -4,7 +4,10 @@ html {
 }
 
 body {
-  background-color: $deepblue;
+  background-image: url("images/background.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .load-text {
