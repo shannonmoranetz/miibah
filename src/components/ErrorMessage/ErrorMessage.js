@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export const ErrorMessage = (props) => {
   return (
     <div className="ErrorMessage">
       <h2>error</h2>
       <p>
-        the search returned no results.
-        please try again with a different query.
+        sorry! there was an error. please try again.
       </p>
-      {/* <Link to='/'>back</Link> */}
-      <button onClick={() => props.history.goBack()}>BACKKKKKK</button>
+      <Link to='/'>go back</Link>
     </div>
   );
 }

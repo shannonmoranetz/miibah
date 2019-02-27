@@ -3,6 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAmiibos } from '../../thunks/getAmiibos.js';
 import PropTypes from 'prop-types';
+import { addAmiibo } from '../../actions';
 
 class SearchBar extends Component {
   constructor() {
@@ -24,6 +25,7 @@ class SearchBar extends Component {
       let url = 'http://www.amiiboapi.com/api/amiibo/?name=';
       let newUrl = url + this.state.search;
       await this.props.getAmiibos(newUrl);
+      this.props.addAmiibo([...this.props.amiibos, ...this.props.searchedAmiibo])
       this.props.history.push(`/search/:${this.state.search}`);
     }
   }
@@ -40,11 +42,17 @@ class SearchBar extends Component {
   }
 }
 
-export const mapDispatchToProps = dispatch => ({
-  getAmiibos: (url) => dispatch(getAmiibos(url))
+export const mapStateToProps = state => ({
+  amiibos: state.amiibos,
+  searchedAmiibo: state.searchedAmiibo
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(SearchBar));
+export const mapDispatchToProps = dispatch => ({
+  getAmiibos: (url) => dispatch(getAmiibos(url)),
+  addAmiibo: (amiibos) => dispatch(addAmiibo(amiibos))
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchBar));
 
 SearchBar.propTypes = {
   getAmiibos: PropTypes.func,

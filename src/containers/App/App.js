@@ -7,6 +7,7 @@ import CardCarousel from '../../containers/CardCarousel/CardCarousel.js';
 import Header from '../../components/Header/Header.js';
 import Menu from '../../components/Menu/Menu.js';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage.js';
+import NoResultsMessage from '../../components/NoResultsMessage/NoResultsMessage.js';
 import SearchBar from '../../containers/SearchBar/SearchBar.js';
 import CardExpanded from '../../containers/CardExpanded/CardExpanded.js';
 import PropTypes from 'prop-types';
@@ -18,6 +19,7 @@ export class App extends Component {
     this.props.getAmiibos(url);
     this.populateWishlist();
     this.populateCollected();
+    this.props.history.push('/');
   }
 
   populateWishlist = () => {
@@ -50,24 +52,24 @@ export class App extends Component {
       <div className="App">
         <Header />
         { this.props.isLoading && <h2 className="load-text">loading...</h2> }
-          <div className="inner-app">
-            <Menu />
-            <SearchBar />
-            { !this.props.error ? (
+        { !this.props.error ? (
+            <div className="inner-app">
+              <Menu />
+              <SearchBar />
                 <Switch>
-                  <Route exact path='/' component={CardCarousel} />
+                  <Route path='/amiibo/:name' render={this.findAmiibo} />
+                  <Route path='/wishlist/:name' render={this.findAmiibo} />
+                  <Route path='/collected/:name' render={this.findAmiibo} />
+                  <Route path='/search/:name' render={() => <CardExpanded amiibo={this.props.searchedAmiibo[0]} history={this.props.history}/>} />
                   <Route path='/wishlist' component={CardCarousel} />
                   <Route path='/collected' component={CardCarousel} />
-                  <Route path='/amiibo/:name' render={this.findAmiibo} />
-                  <Route path='/search/:name' render={() => <CardExpanded amiibo={this.props.searchedAmiibo[0]} history={this.props.history}/>} />
+                  <Route exact path='/' component={CardCarousel} />
                   <Route component={ErrorMessage} />
                 </Switch>
-            ) : (
-              <Switch>
-                <Route render={() => <ErrorMessage history={this.props.history}/>}/>
-              </Switch>
-            )}
           </div>
+        ) : (
+          <Route component={NoResultsMessage} />
+        )}
       </div>
     )
   }

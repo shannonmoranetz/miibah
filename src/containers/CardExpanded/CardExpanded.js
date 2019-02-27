@@ -40,27 +40,31 @@ export class CardExpanded extends Component {
   }
 
   render() {
+    if(this.props.amiibo) {
     let { name, amiiboSeries, gameSeries, release, image } = this.props.amiibo;
-    return (
-      <div className="CardExpanded">
-        <div className="inner-card">
-        <button onClick={() => this.props.history.goBack()} className="exit-button">x</button>
-          <div className="card-image-container">
-            <img className="image-expanded" src={image} alt={`${name} amiibo`}/>
-          </div>
-          <div className="card-info">
-            <h2 className="card-name">{name}</h2>
-            <p className="card-amiibo-series"> amiibo series: {amiiboSeries}</p>
-            <p className="card-game-series">game series: {gameSeries}</p>
-            <p className="card-date">release date: {release.na}</p>
-          </div>
-          <div className="expanded-buttons">
-            <button onClick={this.addAmiiboToWishlist} className="wish-button">{ this.checkExistingList(this.props.wishlist) ? 'add to wishlist' : 'remove from wishlist' }</button>
-            <button onClick={this.addAmiiboToCollected} className="collect-button">{ this.checkExistingList(this.props.collected) ? 'add to collection' : 'remove from collection' }</button>
-          </div>
+      return (
+        <div className="CardExpanded">
+          <div className="inner-card">
+          <button onClick={() => this.props.history.goBack()} className="exit-button">x</button>
+            <div className="card-image-container">
+              <img className="image-expanded" src={image} alt={`${name} amiibo`}/>
+            </div>
+            <div className="card-info">
+              <h2 className="card-name">{name}</h2>
+              <p className="card-amiibo-series"> amiibo series: {amiiboSeries}</p>
+              <p className="card-game-series">game series: {gameSeries}</p>
+              <p className="card-date">release date: {release.na}</p>
+            </div>
+            <div className="expanded-buttons">
+              <button onClick={this.addAmiiboToWishlist} className="wish-button">{ this.checkExistingList(this.props.wishlist) ? 'add to wishlist' : 'remove from wishlist' }</button>
+              <button onClick={this.addAmiiboToCollected} className="collect-button">{ this.checkExistingList(this.props.collected) ? 'add to collection' : 'remove from collection' }</button>
+            </div>
+        </div>
       </div>
-    </div>
-    );
+    )
+    } else {
+      return null
+    }
   }
 }
 
