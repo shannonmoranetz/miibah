@@ -13,6 +13,7 @@ export const getAmiibos = (url) => {
         dispatch(setAmiibos(amiibos));
       }
     } catch (error) {
+      console.log('FIRE ERROR')
       dispatch(setError(error));
       dispatch(setLoading(false));
     }

@@ -6,7 +6,7 @@ import { getWishlist, getCollected }  from '../../actions/';
 import CardCarousel from '../../containers/CardCarousel/CardCarousel.js';
 import Header from '../../components/Header/Header.js';
 import Menu from '../../components/Menu/Menu.js';
-import ErrorMessage from '../../containers/ErrorMessage/ErrorMessage.js';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage.js';
 import SearchBar from '../../containers/SearchBar/SearchBar.js';
 import CardExpanded from '../../containers/CardExpanded/CardExpanded.js';
 import PropTypes from 'prop-types';
@@ -53,14 +53,20 @@ export class App extends Component {
           <div className="inner-app">
             <Menu />
             <SearchBar />
-            <Switch>
-              <Route exact path='/' component={CardCarousel} />
-              <Route path='/wishlist' component={CardCarousel} />
-              <Route path='/collected' component={CardCarousel} />
-              <Route path='/amiibo/:name' render={this.findAmiibo} />
-              <Route path='/search/:name' render={() => <CardExpanded amiibo={this.props.searchedAmiibo[0]} history={this.props.history}/>} />
-              <Route component={ErrorMessage} />
-            </Switch>
+            { !this.props.error ? (
+                <Switch>
+                  <Route exact path='/' component={CardCarousel} />
+                  <Route path='/wishlist' component={CardCarousel} />
+                  <Route path='/collected' component={CardCarousel} />
+                  <Route path='/amiibo/:name' render={this.findAmiibo} />
+                  <Route path='/search/:name' render={() => <CardExpanded amiibo={this.props.searchedAmiibo[0]} history={this.props.history}/>} />
+                  <Route component={ErrorMessage} />
+                </Switch>
+            ) : (
+              <Switch>
+                <Route component={ErrorMessage} />
+              </Switch>
+            )}
           </div>
       </div>
     )
@@ -70,7 +76,8 @@ export class App extends Component {
 export const mapStateToProps = state => ({
   amiibos: state.amiibos,
   searchedAmiibo: state.searchedAmiibo,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  error: state.error
 });
 
 export const mapDispatchToProps = dispatch => ({
