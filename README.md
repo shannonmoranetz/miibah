@@ -15,7 +15,7 @@ mkdir miibah
 ```
 Clone the following link within this directory:
 ```
-$ git clone https://github.com/shannonmoranetz/trapper-keeper-ui
+$ git clone https://github.com/shannonmoranetz/miibah
 ```
 Install the required node modules: 
 ```
