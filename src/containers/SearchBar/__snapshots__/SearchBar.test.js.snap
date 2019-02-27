@@ -1,20 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchBar should match the snapshot 1`] = `
-<div
-  className="SearchBar"
->
-  <form
-    className="search-form"
-  >
-    <input
-      className="search-input"
-      placeholder="search for an amiibo..."
-    />
-    <input
-      className="submit-form"
-      type="submit"
-    />
-  </form>
-</div>
+<Route>
+  <Component />
+</Route>
 `;

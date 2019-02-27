@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoResultsMessage should match the snapshot 1`] = `
+<div
+  className="NoResultsMessage"
+>
+  <h2>
+    sorry!
+  </h2>
+  <p>
+    the search returned no results. please try again with a different query.
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    back home
+  </button>
+</div>
+`;

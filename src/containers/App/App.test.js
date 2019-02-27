@@ -6,7 +6,7 @@ import { shallow } from 'enzyme';
 
 jest.mock('../../thunks/getAmiibos.js');
 
-const matchMock = { params: { id: 1 } };
+const historyMock = { path: '/', push: jest.fn() };
 
 const propsMock = {
   getAmiibos: jest.fn(),
@@ -18,7 +18,7 @@ const propsMock = {
 describe('App', () => {
   let wrapper; 
   beforeEach(() => {
-    wrapper = shallow(<App {...propsMock} />)
+    wrapper = shallow(<App {...propsMock} history={historyMock} />)
   });
 
   it('should match the snapshot', () => {

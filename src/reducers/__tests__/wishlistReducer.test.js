@@ -9,10 +9,18 @@ describe('wishlistReducer', () => {
     expect(result).toEqual(expected);
   });
 
-  it('should return state of an array of amiibo objects with the action addToWishlist', () => {
+  it('should return state of an array of amiibo objects with the action addToWishlist if the item does not exist', () => {
     const mockAmiibo = { name: 'pikachu', id: 1 };
     const expected = [mockAmiibo];
     const result = wishlistReducer(undefined, actions.addToWishlist(mockAmiibo));
+    expect(result).toEqual(expected);
+  });
+
+  it('should return state of an array of amiibo objects with the action addToWishlist if the item already exists', () => {
+    const initialState = [{ name: 'pikachu', id: 1 }];
+    const mockAmiibo = { name: 'pikachu', id: 1 };
+    const expected = initialState;
+    const result = wishlistReducer(initialState, actions.addToWishlist(mockAmiibo));
     expect(result).toEqual(expected);
   });
 

@@ -11,6 +11,26 @@ describe('actions', () => {
     expect(result).toEqual(expected);
   });
 
+  it('should return a type of ADD_AMIIBO with an amiibos array', () => {
+    const amiibos = [{ name: 'squirtle', id: 2 }];
+    const expected = {
+      type: 'ADD_AMIIBO',
+      amiibos
+    }
+    const result = actions.addAmiibo(amiibos);
+    expect(result).toEqual(expected);
+  });
+
+  it('should return a type of SEARCH_AMIIBO with an amiibos array', () => {
+    const searchedAmiibo = [{ name: 'squirtle', id: 2 }];
+    const expected = {
+      type: 'SEARCH_AMIIBO',
+      searchedAmiibo
+    }
+    const result = actions.searchAmiibo(searchedAmiibo);
+    expect(result).toEqual(expected);
+  });
+
   it('should return a type of ADD_TO_WISHLIST with an amiibo object', () => {
     const amiibo = { name: 'squirtle', id: 2 };
     const expected = {

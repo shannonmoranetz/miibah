@@ -9,12 +9,23 @@ exports[`App should match the snapshot 1`] = `
     className="inner-app"
   >
     <Menu />
-    <SearchBar />
+    <withRouter(Connect(SearchBar)) />
     <Switch>
       <Route
-        component={[Function]}
-        exact={true}
-        path="/"
+        path="/amiibo/:name"
+        render={[Function]}
+      />
+      <Route
+        path="/wishlist/:name"
+        render={[Function]}
+      />
+      <Route
+        path="/collected/:name"
+        render={[Function]}
+      />
+      <Route
+        path="/search/:name"
+        render={[Function]}
       />
       <Route
         component={[Function]}
@@ -25,8 +36,9 @@ exports[`App should match the snapshot 1`] = `
         path="/collected"
       />
       <Route
-        path="/amiibo/:name"
-        render={[Function]}
+        component={[Function]}
+        exact={true}
+        path="/"
       />
       <Route
         component={[Function]}

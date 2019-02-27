@@ -9,10 +9,18 @@ describe('collectedReducer', () => {
     expect(result).toEqual(expected);
   });
 
-  it('should return state of an array of amiibo objects with the action addToCollected', () => {
+  it('should return state of an array of amiibo objects with the action addToCollected if the item does not exist', () => {
     const mockAmiibo = { name: 'pikachu', id: 1 };
     const expected = [mockAmiibo];
     const result = collectedReducer(undefined, actions.addToCollected(mockAmiibo));
+    expect(result).toEqual(expected);
+  });
+
+  it('should return state of an array of amiibo objects with the action addToCollected if the item already exists', () => {
+    const initialState = [{ name: 'pikachu', id: 1 }];
+    const mockAmiibo = { name: 'pikachu', id: 1 };
+    const expected = initialState;
+    const result = collectedReducer(initialState, actions.addToCollected(mockAmiibo));
     expect(result).toEqual(expected);
   });
 

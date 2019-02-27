@@ -9,11 +9,17 @@ describe('amiibosReducer', () => {
     expect(result).toEqual(expected);
   });
 
-  it('should return state with an array of amiibo objects', () => {
+  it('should return state with an array of amiibo objects with action setAmiibos', () => {
     const mockAmiibo = { name: 'pikachu', id: 1 };
     const expected = [mockAmiibo];
     const result = amiibosReducer(undefined, actions.setAmiibos([mockAmiibo]));
     expect(result).toEqual(expected);
   });
-  
+
+  it('should return state with an array of amiibo objects with action addAmiibo', () => {
+    const mockAmiibo = { name: 'pikachu', id: 1 };
+    const expected = [mockAmiibo];
+    const result = amiibosReducer(undefined, actions.addAmiibo([mockAmiibo]));
+    expect(result).toEqual(expected);
+  });
 });

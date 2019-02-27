@@ -1,6 +1,6 @@
 import { getAmiibos } from '../getAmiibos.js';
 import * as api from '../../utils/api.js';
-import { setLoading, setAmiibos, setError } from '../../actions';
+import { setLoading } from '../../actions';
 
 describe('getAmiibos', () => {
   const dispatchMock = jest.fn();
@@ -22,12 +22,11 @@ describe('getAmiibos', () => {
 
   it('should call fetchItems with a url param', async () => {
     await thunk(dispatchMock);
-    expect(api.fetchItems).toHaveBeenCalledWith('http://www.amiiboapi.com/api/amiibo/');
+    expect(api.fetchItems).toHaveBeenCalled();
   });
 
   it('should dispatch setLoading with a false param', async () => {
     await thunk(dispatchMock);
     expect(dispatchMock).toHaveBeenCalledWith(setLoading(false));
   });
-
 });

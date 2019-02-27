@@ -8,8 +8,13 @@ exports[`ErrorMessage should match the snapshot 1`] = `
     error
   </h2>
   <p>
-    the search returned no results. please try again with a different query.
+    sorry! there was an error. please try again.
   </p>
-  <p />
+  <Link
+    replace={false}
+    to="/"
+  >
+    go back
+  </Link>
 </div>
 `;

@@ -66,7 +66,7 @@ export class App extends Component {
                   <Route exact path='/' component={CardCarousel} />
                   <Route component={ErrorMessage} />
                 </Switch>
-          </div>
+            </div>
         ) : (
           <Route component={NoResultsMessage} />
         )}

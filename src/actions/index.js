@@ -1,5 +1,5 @@
 export const SET_AMIIBOS = 'SET_AMIIBOS';
-export const SEARCH_AMIIBO = 'SEARCH_AMIIBOS';
+export const SEARCH_AMIIBO = 'SEARCH_AMIIBO';
 export const ADD_AMIIBO = 'ADD_AMIIBO';
 export const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST';
 export const ADD_TO_COLLECTED = 'ADD_TO_COLLECTED';
