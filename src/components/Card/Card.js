@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-class Card extends Component {
+export class Card extends Component {
 
   getPath = () => {
     const { match } = this.props

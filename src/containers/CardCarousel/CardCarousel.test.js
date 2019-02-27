@@ -1,5 +1,6 @@
 import React from 'react';
 import { CardCarousel, mapStateToProps } from './CardCarousel';
+import { Card } from '../../components/Card/Card';
 import { shallow } from 'enzyme';
 
 const propsMock = {
@@ -23,6 +24,11 @@ describe('CardCarousel', () => {
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should return only one Card component when mapping over amiibos props with one object', () => {
+    const results = wrapper.instance().returnAmiibos(propsMock.amiibos);
+    expect(results).toHaveLength(1);
   });
 
   describe('mapStateToProps', () => {

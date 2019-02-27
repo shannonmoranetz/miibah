@@ -5,7 +5,7 @@ import { getAmiibos } from '../../thunks/getAmiibos.js';
 import PropTypes from 'prop-types';
 import { addAmiibo } from '../../actions';
 
-class SearchBar extends Component {
+export class SearchBar extends Component {
   constructor() {
     super();
     this.state = {
@@ -33,9 +33,9 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="SearchBar">
-        <form onSubmit={this.handleSubmit} className="search-form">
+        <form className="search-form" onSubmit={this.handleSubmit} >
           <input onChange={this.handleChange} className="search-input" placeholder="search for an amiibo..."/>
-          <Link to='/search/:name' className="submit-form" type="submit"></Link>
+          <Link className="submit-button" to='/search/:name' type="submit" onClick={this.handleSubmit} ></Link>
         </form>
       </div>
     )

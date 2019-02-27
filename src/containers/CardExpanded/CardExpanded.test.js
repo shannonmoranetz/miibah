@@ -2,52 +2,48 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { CardExpanded, mapStateToProps, mapDispatchToProps } from '../CardExpanded/CardExpanded';
 import { addToWishlist, addToCollected, removeFromCollected, removeFromWishlist } from '../../actions';
-
-const propsMock = { amiibo: {
-  name: 'pikachu',
-  amiiboSeries: 'pokemon',
-  gameSeries: 'pokemon',
-  image: 'pikachu.img',
-  release: '2019-02-15',
-  id: 1
-},
-addAmiiboToWishlist: jest.fn(),
-addAmiiboToCollected: jest.fn(),
-addToWishlist: jest.fn(),
-addToCollected: jest.fn(),
-wishlist: [],
-collected: []
-};
-
+import * as data from './__mocks__/CardExpandedMockProps';
 
 describe('CardExpanded', () => {
   let wrapper; 
   beforeEach(() => {
-    wrapper = shallow(<CardExpanded {...propsMock} />);
+    wrapper = shallow(<CardExpanded {...data.propsMock} />);
   });
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should call addToWishlist with an amiibo param when addAmiiboToWishlist is called', async () => {
+  it('should call addToWishlist with an amiibo param when addAmiiboToWishlist is called', () => {
     wrapper.instance().addAmiiboToWishlist();
-    expect(propsMock.addToWishlist).toHaveBeenCalledWith(propsMock.amiibo);
+    expect(data.propsMock.addToWishlist).toHaveBeenCalledWith(data.propsMock.amiibo);
   });
 
-  it('should call addToCollected with an amiibo param when addAmiiboToCollected is called', async () => {
+  it('should call removeFromWishlist with an amiibo param when addAmiiboToWishlist is called if item does not exist', () => {
+    wrapper = shallow(<CardExpanded {...data.populatedListsPropsMock} />)
+    wrapper.instance().addAmiiboToWishlist();
+    expect(data.populatedListsPropsMock.removeFromWishlist).toHaveBeenCalledWith(data.populatedListsPropsMock.amiibo);
+  });
+
+  it('should call addToCollected with an amiibo param when addAmiiboToCollected is called', () => {
     wrapper.instance().addAmiiboToCollected();
-    expect(propsMock.addToCollected).toHaveBeenCalledWith(propsMock.amiibo);
+    expect(data.propsMock.addToCollected).toHaveBeenCalledWith(data.propsMock.amiibo);
   });
 
-  it('should check a list and return true if an item does not exist', () => {
-    let result = wrapper.instance().checkExistingList(propsMock.wishlist);
-    expect(result).toEqual(true);
+  it('should call removeFromCollected with an amiibo param when addAmiiboToCollected is called if item does not exist', () => {
+    wrapper = shallow(<CardExpanded {...data.populatedListsPropsMock} />)
+    wrapper.instance().addAmiiboToCollected();
+    expect(data.populatedListsPropsMock.removeFromCollected).toHaveBeenCalledWith(data.populatedListsPropsMock.amiibo);
   });
 
-  it('should check a list and return false if an item already exists', () => {
-    let result = wrapper.instance().checkExistingList([{ name: 'pikachu' }]);
-    expect(result).toEqual(false);
+  it('should call goBack when the back button is clicked', () => {
+    wrapper.find('.exit-button').simulate('click');
+    expect(data.propsMock.history.goBack).toHaveBeenCalled();
+  });
+
+  it('render should return null if an amiibo prop does not exist', () => {
+    wrapper = shallow(<CardExpanded {...data.emptyPropsMock} />);
+    expect(wrapper.type()).toEqual(null);
   });
 
   describe('mapStateToProps', () => {

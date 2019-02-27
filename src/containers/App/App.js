@@ -13,7 +13,6 @@ import CardExpanded from '../../containers/CardExpanded/CardExpanded.js';
 import PropTypes from 'prop-types';
 
 export class App extends Component {
-
   componentDidMount = () => {
     const url = 'http://www.amiiboapi.com/api/amiibo/';
     this.props.getAmiibos(url);

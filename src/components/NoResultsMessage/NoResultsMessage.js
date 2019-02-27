@@ -8,7 +8,7 @@ export const NoResultsMessage = () => {
         the search returned no results.
         please try again with a different query.
       </p>
-      <button onClick={() => window.location.reload()}>back home</button>
+      <button className="back-home" onClick={() => window.location.reload()}>back home</button>
     </div>
   );
 }

@@ -8,7 +8,7 @@ exports[`ErrorMessage should match the snapshot 1`] = `
     error
   </h2>
   <p>
-    sorry! there was an error. please try again.
+    uh oh, encountered an error... please try again!
   </p>
   <Link
     replace={false}

@@ -7,7 +7,7 @@ export const ErrorMessage = (props) => {
     <div className="ErrorMessage">
       <h2>error</h2>
       <p>
-        sorry! there was an error. please try again.
+        uh oh, encountered an error... please try again!
       </p>
       <Link to='/'>go back</Link>
     </div>
