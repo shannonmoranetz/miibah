@@ -41,7 +41,6 @@ export class CardExpanded extends Component {
 
   render() {
     let { name, amiiboSeries, gameSeries, release, image } = this.props.amiibo;
-    console.log(this.props)
     return (
       <div className="CardExpanded">
         <div className="inner-card">

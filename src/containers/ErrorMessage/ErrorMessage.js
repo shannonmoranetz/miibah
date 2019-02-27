@@ -17,12 +17,8 @@ export class ErrorMessage extends Component {
   }
 }
 
-export const mapStateToProps = state => ({
-  error: state.error
-});
-
-export default (connect(mapStateToProps)(ErrorMessage));
+export default ErrorMessage;
 
 ErrorMessage.propTypes = {
-  error: PropTypes.string
+
 }

@@ -58,7 +58,7 @@ export class App extends Component {
               <Route path='/wishlist' component={CardCarousel} />
               <Route path='/collected' component={CardCarousel} />
               <Route path='/amiibo/:name' render={this.findAmiibo} />
-              <Route path='/search/:name' render={() => <CardExpanded amiibo={this.props.searchedAmiibo[0]} />} />
+              <Route path='/search/:name' render={() => <CardExpanded amiibo={this.props.searchedAmiibo[0]} history={this.props.history}/>} />
               <Route component={ErrorMessage} />
             </Switch>
           </div>

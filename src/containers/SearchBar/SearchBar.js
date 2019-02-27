@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { withRouter, Link, Redirect } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAmiibos } from '../../thunks/getAmiibos.js';
-import CardExpanded from '../../containers/CardExpanded/CardExpanded.js';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
@@ -26,8 +25,6 @@ class SearchBar extends Component {
       let newUrl = url + this.state.search;
       await this.props.getAmiibos(newUrl);
       this.props.history.push(`/search/:${this.state.search}`);
-      // return ( <Redirect to={`/search/:${this.state.search}`} amiibo={this.props.searchedAmiibo} /> );
-
     }
   }
 
@@ -43,14 +40,15 @@ class SearchBar extends Component {
   }
 }
 
-export const mapStateToProps = state => ({
-  searchedAmiibo: state.searchedAmiibo
-});
-
 export const mapDispatchToProps = dispatch => ({
   getAmiibos: (url) => dispatch(getAmiibos(url))
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchBar));
+export default withRouter(connect(null, mapDispatchToProps)(SearchBar));
 
-SearchBar.propTypes = {}
+SearchBar.propTypes = {
+  getAmiibos: PropTypes.func,
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object
+}
