@@ -17,8 +17,8 @@ textarea:focus, input:focus{
   font-size: 16px;
   width: 300px;
   font-family: $body-font;
-  padding: 10px;
-  border: 2px solid $darkblue;
+  padding: 8px;
+  border: 3px solid $darkblue;
   border-radius: 15px;
 }
 
@@ -43,4 +43,8 @@ textarea:focus, input:focus{
   padding: 7px;
   font-size: 18px;
   color: $deepblue;
+}
+
+.submit-button:hover {
+  color: tomato;
 }

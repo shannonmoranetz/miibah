@@ -6,7 +6,7 @@ a {
 .card-link {
   margin-right: 20px;
   width: 400px;
-  border: 10px solid white;
+  border: 10px solid $ice;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -27,5 +27,9 @@ a {
 .preview-image {
   height: 200px;
   margin: 20px auto;
+}
+
+.card-link:hover {
+  box-shadow: inset -5px 0 20px white, inset 0 -5px 20px white, inset 5px 0 20px white, inset 0 5px 20px white;
 }
 
