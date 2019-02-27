@@ -14,7 +14,8 @@ import PropTypes from 'prop-types';
 export class App extends Component {
 
   componentDidMount = () => {
-    this.props.getAmiibos();
+    const url = 'http://www.amiiboapi.com/api/amiibo/';
+    this.props.getAmiibos(url);
     this.populateWishlist();
     this.populateCollected();
   }
@@ -57,6 +58,7 @@ export class App extends Component {
               <Route path='/wishlist' component={CardCarousel} />
               <Route path='/collected' component={CardCarousel} />
               <Route path='/amiibo/:name' render={this.findAmiibo} />
+              <Route path='/search/:name' render={() => <CardExpanded amiibo={this.props.searchedAmiibo[0]} />} />
               <Route component={ErrorMessage} />
             </Switch>
           </div>
@@ -67,11 +69,12 @@ export class App extends Component {
 
 export const mapStateToProps = state => ({
   amiibos: state.amiibos,
+  searchedAmiibo: state.searchedAmiibo,
   isLoading: state.isLoading
 });
 
 export const mapDispatchToProps = dispatch => ({
-  getAmiibos: () => dispatch(getAmiibos()),
+  getAmiibos: (url) => dispatch(getAmiibos(url)),
   getWishlist: (wishlist) => dispatch(getWishlist(wishlist)),
   getCollected: (collected) => dispatch(getCollected(collected))
 });

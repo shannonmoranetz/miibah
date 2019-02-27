@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 export class ErrorMessage extends Component {
   render() {
+    console.log(this.props);
     return (
       <div className="ErrorMessage">
         <h2>error</h2>
@@ -11,7 +12,6 @@ export class ErrorMessage extends Component {
           the search returned no results. 
           please try again with a different query.
         </p>
-        <p>{this.props.error}</p>
       </div>
     );
   }

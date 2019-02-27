@@ -1,5 +1,4 @@
 import { SET_AMIIBOS } from '../actions';
-import ids from 'short-id';
 
 export function amiibosReducer(state = [], action) {
   switch (action.type) {

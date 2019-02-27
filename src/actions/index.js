@@ -1,4 +1,5 @@
 export const SET_AMIIBOS = 'SET_AMIIBOS';
+export const SEARCH_AMIIBO = 'SEARCH_AMIIBOS';
 export const ADD_TO_WISHLIST = 'ADD_TO_WISHLIST';
 export const ADD_TO_COLLECTED = 'ADD_TO_COLLECTED';
 export const REMOVE_FROM_COLLECTED = 'REMOVE_FROM_COLLECTED';
@@ -11,6 +12,11 @@ export const SET_ERROR = 'SET_ERROR';
 export const setAmiibos = amiibos => ({
   type: SET_AMIIBOS,
   amiibos
+});
+
+export const searchAmiibo = searchedAmiibo => ({
+  type: SEARCH_AMIIBO,
+  searchedAmiibo
 });
 
 export const addToWishlist = amiibo => ({
