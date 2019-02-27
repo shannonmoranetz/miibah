@@ -64,7 +64,7 @@ export class App extends Component {
                 </Switch>
             ) : (
               <Switch>
-                <Route component={ErrorMessage} />
+                <Route render={() => <ErrorMessage history={this.props.history}/>}/>
               </Switch>
             )}
           </div>
