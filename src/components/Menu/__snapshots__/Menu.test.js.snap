@@ -6,14 +6,25 @@ exports[`Menu should match the snapshot 1`] = `
 >
   <NavLink
     activeClassName="active"
+    activeStyle={
+      Object {
+        "color": "#a6a6eb",
+      }
+    }
     aria-current="page"
     className="nav-button home-button"
+    exact={true}
     to="/"
   >
     home
   </NavLink>
   <NavLink
     activeClassName="active"
+    activeStyle={
+      Object {
+        "color": "#a6a6eb",
+      }
+    }
     aria-current="page"
     className="nav-button wishlist-button"
     to="/wishlist"
@@ -22,6 +33,11 @@ exports[`Menu should match the snapshot 1`] = `
   </NavLink>
   <NavLink
     activeClassName="active"
+    activeStyle={
+      Object {
+        "color": "#a6a6eb",
+      }
+    }
     aria-current="page"
     className="nav-button collection-button"
     to="/collected"

@@ -7,12 +7,6 @@ exports[`CardExpanded should match the snapshot 1`] = `
   <div
     className="inner-card"
   >
-    <button
-      className="exit-button"
-      onClick={[Function]}
-    >
-      x
-    </button>
     <div
       className="card-image-container"
     >
@@ -33,19 +27,31 @@ exports[`CardExpanded should match the snapshot 1`] = `
       <p
         className="card-amiibo-series"
       >
-         amiibo series: 
+        <div
+          className="bold-info"
+        >
+          amiibo series: 
+        </div>
         pokemon
       </p>
       <p
         className="card-game-series"
       >
-        game series: 
+        <div
+          className="bold-info"
+        >
+          game series: 
+        </div>
         pokemon
       </p>
       <p
         className="card-date"
       >
-        release date: 
+        <div
+          className="bold-info"
+        >
+          release date: 
+        </div>
       </p>
     </div>
     <div
@@ -62,6 +68,12 @@ exports[`CardExpanded should match the snapshot 1`] = `
         onClick={[Function]}
       >
         add to collection
+      </button>
+      <button
+        className="exit-button"
+        onClick={[Function]}
+      >
+        back
       </button>
     </div>
   </div>
