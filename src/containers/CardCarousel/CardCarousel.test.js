@@ -1,6 +1,5 @@
 import React from 'react';
 import { CardCarousel, mapStateToProps } from './CardCarousel';
-import { Card } from '../../components/Card/Card';
 import { shallow } from 'enzyme';
 
 const propsMock = {
@@ -11,7 +10,7 @@ const propsMock = {
               gameSeries: 'pokemon', 
               image: 'pikachu.img', 
               release: '2/20/2019' }
-            ],
+            ]
 };
 
 const matchMock = { params: { id: 1 } };

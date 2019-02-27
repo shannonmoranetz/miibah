@@ -19,7 +19,9 @@ exports[`SearchBar should match the snapshot 1`] = `
       replace={false}
       to="/search/:name"
       type="submit"
-    />
+    >
+      search
+    </Link>
   </form>
 </div>
 `;

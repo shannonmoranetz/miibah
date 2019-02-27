@@ -35,7 +35,7 @@ export class SearchBar extends Component {
       <div className="SearchBar">
         <form className="search-form" onSubmit={this.handleSubmit} >
           <input onChange={this.handleChange} className="search-input" placeholder="search for an amiibo..."/>
-          <Link className="submit-button" to='/search/:name' type="submit" onClick={this.handleSubmit} ></Link>
+          <Link className="submit-button" to='/search/:name' type="submit" onClick={this.handleSubmit}>search</Link>
         </form>
       </div>
     )
